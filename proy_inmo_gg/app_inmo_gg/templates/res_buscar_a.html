@@ -1,0 +1,58 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+{% block contenido %}
+
+<h3>Resultado busqueda de barrio para alquiler:</h3>
+
+
+{% if alquiler %}
+
+    <ul>
+    {% for alquiler in alquiler %}
+        <li>{{alquiler.tipo_prop_a}}</li>
+        <li>{{alquiler.localidad_a}}</li>
+        <li>{{alquiler.barrio_a}}</li>
+        <li>{{alquiler.cant_dormi_a}}</li>
+        <li>{{alquiler.estado_a}}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No se encontraron datos</p>
+
+{% endif %}
+
+<main>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Tipo de inmueble</th>
+        <th scope="col">Localidad</th>
+        <th scope="col">Barrio</th>
+        <th scope="col">Cant. dormit.</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+        {% for n in alquiler %}
+        <tr>
+            <th scope="row">{{n.id}}</th>
+            <td>{{n.tipo_prop_a}}</td>
+            <td>{{n.localidad_a}}</td>
+            <td>{{n.barrio_a}}</td>
+            <td>{{n.cant_dormi_a}}</td>
+            <td>{{n.estado_a}}</td>
+          </tr>
+        {% endfor %}
+      
+    </tbody>
+  </table>
+
+</main>
+
+{% endblock %}
